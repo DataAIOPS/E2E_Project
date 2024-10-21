@@ -1,0 +1,26 @@
+Now go to GitHub and create repo name: E2E_Project
+
+Initialize git repo locally in terminal(gitbash)
+git init
+touch test.txt
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/DataAIOPS/E2E_Project.git
+git push -u origin main
+
+Verify if changes are there in GitHub
+
+Now open vscode in same directory
+
+## Create Virtual env
+For windows:
+python -m venv mlflow_e2e
+. mlflow_e2e/Scripts/activate
+
+set up project structure
+
+pip install -r requirments.txt
+
+
+
