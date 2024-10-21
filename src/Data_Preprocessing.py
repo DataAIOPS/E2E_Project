@@ -9,7 +9,7 @@ with open("./config/config.yaml","r") as file:
 
 test_size = config['preprocess']['test_size']
 Target = config['preprocess']['Target']
-raw_data_path = config['data_paths']['raw_data_path']
+processed_data_path = config['data_paths']['processed_data_path']
 clean_data_path = config['data_paths']['clean_data_path']
 
 def processed_data(cleaned_data_path, processed_data_path, Target):
@@ -30,8 +30,8 @@ def processed_data(cleaned_data_path, processed_data_path, Target):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--cleaned_data_path",help="provide raw data path", default=raw_data_path)
-    parser.add_argument("--processed_data_path",help="provide cleaned data path", default=clean_data_path)
+    parser.add_argument("--cleaned_data_path",help="provide raw data path", default=clean_data_path)
+    parser.add_argument("--processed_data_path",help="provide cleaned data path", default=processed_data_path)
     parser.add_argument("--Target",help="provide cleaned data path", default=Target)
     args = parser.parse_args()
     processed_data(args.cleaned_data_path,args.processed_data_path,args.Target)

@@ -22,5 +22,17 @@ set up project structure
 
 pip install -r requirments.txt
 
+ python ./src/Data_Cleaning.py => Data_Cleaning is phase is completed
+
+ created .gitignore and added mlflow_e2e
+
+ git add .
+ git commit -m "Data_Cleaning is phase is completed"
+ git push -u origin main
+
+ git add .
+ git commit -m "Data_preprocessing is phase is completed"
+ git push -u origin main
+ 
 
 
