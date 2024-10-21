@@ -31,7 +31,12 @@ pip install -r requirments.txt
  git push -u origin main
 
  git add .
- git commit -m "Data_preprocessing is phase is completed"
+ git commit -m "Data_preprocessing has some corrections"
+ git push -u origin main
+ 
+
+ git add .
+ git commit -m "model building is finished"
  git push -u origin main
  
 

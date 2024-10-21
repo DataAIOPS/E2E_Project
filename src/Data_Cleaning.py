@@ -2,15 +2,16 @@ import pandas as pd
 import argparse
 import os
 import yaml
+import mlflow
 
-with open("./config/config.yaml","r") as file:
+with open("./../config/config.yaml","r") as file:
     config =  yaml.safe_load(file)
 
 raw_data_path = config['data_paths']['raw_data_path']
 clean_data_path = config['data_paths']['clean_data_path']
 
 
-def data_cleaning(raw_data_path, clean_data_path, raw_data_file):
+def data_cleaning(raw_data_path, clean_data_path):
     raw_data_file = os.listdir(raw_data_path)[0]
     print("################DATA CLEANING STARTED##################")
     raw_data = os.path.join(raw_data_path,raw_data_file)
@@ -23,6 +24,7 @@ def data_cleaning(raw_data_path, clean_data_path, raw_data_file):
 
     clean_data_file = os.path.join(clean_data_path,raw_data_file)
     df.to_csv(clean_data_file,index=False)
+    mlflow.log_param("cleaned_data_path",clean_data_file)
     print("################DATA CLEANING FINISHED##################")
 
 if __name__ == "__main__":

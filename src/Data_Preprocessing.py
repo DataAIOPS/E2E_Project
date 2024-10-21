@@ -3,8 +3,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import yaml
 import argparse
+import mlflow
 
-with open("./config/config.yaml","r") as file:
+with open("./../config/config.yaml","r") as file:
     config =  yaml.safe_load(file)
 
 test_size = config['preprocess']['test_size']
@@ -21,6 +22,8 @@ def processed_data(cleaned_data_path, processed_data_path, Target):
     Y = df[[Target]]
 
     X_train,X_test,y_train,y_test = train_test_split(X,Y,test_size=test_size)
+
+    mlflow.log_param("test_size",test_size)
 
     X_train.to_csv(os.path.join(processed_data_path,"X_train.csv"))
     X_test.to_csv(os.path.join(processed_data_path,"X_test.csv"))

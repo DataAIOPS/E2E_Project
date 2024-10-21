@@ -4,8 +4,9 @@ from sklearn.linear_model import LinearRegression
 import pickle
 import yaml
 import argparse
+import mlflow
 
-with open("./config/config.yaml","r") as file:
+with open("./../config/config.yaml","r") as file:
     config =  yaml.safe_load(file)
 
 processed_data_path = config['data_paths']['processed_data_path']
@@ -28,8 +29,10 @@ def model_building(processed_data,model_path):
 
     model_path_file = os.path.join(model_path,"linear_model.pkl")
     pickle.dump(model,open(model_path_file,"wb"))
-    
 
+    mlflow.log_param("fit_intercept",fit_intercept)
+    mlflow.sklearn.log_model(model,"linear_reg")
+    
     print(f"[INFO] model is exporeted")
     print("################MODEL BUILDING FINISHED#####################")
 
