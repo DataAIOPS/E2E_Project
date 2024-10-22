@@ -22,6 +22,7 @@ def main(run_name):
         mlflow.run("./src",entry_point="Data_Cleaning.py",env_manager="local",run_name="Data_Cleaning")
         mlflow.run("./src",entry_point="Data_Preprocessing.py",env_manager="local",run_name="Data_Preprocessing")
         mlflow.run("./src",entry_point="Model_Building.py",env_manager="local",run_name="Model_Building")
+        mlflow.run("./src",entry_point="Model_Evaluation.py",env_manager="local",run_name="Model_Evaluation")
 
 
 if __name__ == "__main__":

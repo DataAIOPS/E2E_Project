@@ -5,7 +5,7 @@ data_paths:
   raw_data_file : homeprices.csv
   model_path: './../artifacts/model/raw_model/'
 preprocess:
-  test_size : 0.8
+  test_size : 0.3
   Target : price
 model:
   fit_intercept : True
