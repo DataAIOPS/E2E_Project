@@ -39,7 +39,6 @@ def model_eval(processed_data_path,model_path):
     y_train = pd.read_csv(y_train_path)
 
     y_pred_train = model.predict(x_train)
-    print(y_train)
 
     r2_score_train = r2_score(y_train,y_pred_train)
     MAE_train = mean_absolute_error(y_train,y_pred_train)
