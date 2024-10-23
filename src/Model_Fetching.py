@@ -1,8 +1,27 @@
 import mlflow
 from mlflow.tracking import MlflowClient
 import os
+import yaml
+import argparse
 
-def model_fecthing(best_model_path,experiment_name='Default'):
+
+with open("./../config/secrets.yaml","r") as file:
+    secrets =  yaml.safe_load(file)
+
+
+with open("./../config/config.yaml","r") as file:
+    config =  yaml.safe_load(file)
+
+best_model_path = config['data_paths']['best_model_path']
+experiment_name = config['mlflow']['experiment_name']
+
+
+os.environ['MLFLOW_TRACKING_URI'] = secrets['mlflow']['MLFLOW_TRACKING_URI']
+os.environ['MLFLOW_TRACKING_USERNAME'] = secrets['mlflow']['MLFLOW_TRACKING_USERNAME']
+os.environ['MLFLOW_TRACKING_PASSWORD'] = secrets['mlflow']['MLFLOW_TRACKING_PASSWORD']
+
+def model_fecthing(best_model_path,experiment_name):
+    print("#################Model Fetching Started################")
     clinet = MlflowClient()
 
     experiment = clinet.get_experiment_by_name(experiment_name)
@@ -36,11 +55,15 @@ def model_fecthing(best_model_path,experiment_name='Default'):
         local_model_path = mlflow.artifacts.download_artifacts(model_uri, dst_path=best_model_path)
                 
         print(f"Model downloaded to: {local_model_path}")
+        print("#################Model Fetching Finished################")
+  
 
-
-best_model_path="./artifacts/model/best_model"
-experiment_name = "New"
-model_fecthing(best_model_path,experiment_name)    
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--best_model_path",help="provide raw data path", default=best_model_path)
+    parser.add_argument("--experiment_name",help="provide cleaned data path", default=experiment_name)
+    args = parser.parse_args()
+    model_fecthing(args.best_model_path,args.experiment_name)
 
     
 

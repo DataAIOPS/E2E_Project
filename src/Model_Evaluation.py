@@ -44,6 +44,7 @@ def model_eval(processed_data_path,model_path):
     MAE_train = mean_absolute_error(y_train,y_pred_train)
     MSE_train = mean_squared_error(y_train,y_pred_train)
     mlflow.log_metrics({"r2_score_train":r2_score_train,"MAE_train":MAE_train,"MSE_train":MSE_train})
+    mlflow.sklearn.log_model(model,"linear_reg")
     print("#################Model Evaluation Finished ################")
 
 
