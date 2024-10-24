@@ -14,7 +14,7 @@ mlflow:
   experiment_name : test
   run_name : first_model
 flask_app:
-  best_model_path : './artifacts/model/best_model/'
+  best_model_path : './app/artifacts/model/best_model/'
 
 
   

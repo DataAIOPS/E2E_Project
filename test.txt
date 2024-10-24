@@ -38,6 +38,22 @@ pip install -r requirments.txt
  git add .
  git commit -m "model building is finished"
  git push -u origin main
+
+
+ git add .
+ git commit -m "model fetching finished"
+ git push -u origin main
+
+
+
+ git add .
+ git commit -m "Dockerfile written"
+ git push -u origin main
+
+# To run dockerfile and create image 
+ docker build -t new_flask .
+
+
  
 
 

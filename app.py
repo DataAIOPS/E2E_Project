@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 import yaml
 
 
-with open("./config/config.yaml","r") as file:
+with open("./app/config/config.yaml","r") as file:
     config =  yaml.safe_load(file)
 
 model_path = config["flask_app"]["best_model_path"]
