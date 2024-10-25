@@ -54,13 +54,6 @@ pip install -r requirments.txt
  docker build -t new_flask .
  docker build -t DOCKERHUB_USERNAME/new_flask:TAG .
 
- 1) DOCKERHUB_USERNAME/new_flask:1234941748 
-
- 2) DOCKERHUB_USERNAME/new_flask:40q7470947 
- 
- 3) DOCKERHUB_USERNAME/new_flask:4092749724 DOCKERHUB_USERNAME/new_flask:latest
-
- docker pull DOCKERHUB_USERNAME/new_flask:latest
 
  
 
