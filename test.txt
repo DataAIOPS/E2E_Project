@@ -55,6 +55,6 @@ pip install -r requirments.txt
  docker build -t DOCKERHUB_USERNAME/new_flask:TAG .
 
 
- 
+.
 
 
